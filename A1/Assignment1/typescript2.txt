@@ -1,0 +1,23 @@
+Script started on 2020-01-22 02:25:45-0800
+/u/ypradera/Desktop/ECE373/Assignment1
+ypradera@PC:~/Desktop/ECE373/Assignment1$ ls -l
+total 39
+-rw-r--r-- 1 ypradera them 18784 Dec 22 20:35 A1.docx
+-rwx------ 1 ypradera them  8784 Feb 27 02:19 c_prog
+-rw-r--r-- 1 ypradera them   593 Feb 27 02:15 c_prog.c
+-rw-r--r-- 1 ypradera them   447 Feb 27 01:48 HelloKernel.c
+-rw------- 1 ypradera them  3888 Feb 27 01:54 HelloKernel.ko
+-rw------- 1 ypradera them   603 Feb 27 01:54 HelloKernel.mod.c
+-rw------- 1 ypradera them  2576 Feb 27 01:54 HelloKernel.mod.o
+-rw------- 1 ypradera them  3208 Feb 27 01:54 HelloKernel.o
+-rw-r--r-- 1 ypradera them   208 Jun  5  2018 Makefile
+-rw------- 1 ypradera them    71 Feb 27 01:54 modules.order
+-rw------- 1 ypradera them     0 Feb 27 01:54 Module.symvers
+-rw------- 1 ypradera them     0 Feb 27 02:25 typescript
+-rw------- 1 ypradera them   301 Feb 27 02:20 typescript1
+ypradera@PC:~/Desktop/ECE373/Assignment1$ mkdir ECE373-A2
+ypradera@PC:~/Desktop/ECE373/Assignment1$ cd ECE373-A2
+ypradera@PC:~/Desktop/ECE373/Assignment1/ECE373-A2$ exit
+exit
+
+Script done on 2020-01-22 02:26:28-0800

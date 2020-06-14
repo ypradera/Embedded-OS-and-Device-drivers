@@ -1,0 +1,10 @@
+Script started on 2020-01-22 02:19:25-0800
+ypradera@ruby:~/Desktop/ECE373/Assignment1$ g++ c_[K[Kc_prog.c -o c_prog
+ypradera@ruby:~/Desktop/ECE373/Assignment1$ ./c_prog 22
+ Number = 22.
+22 * 30 = 660.
+
+ypradera@ruby:~/Desktop/ECE373/Assignment1$ exit
+exit
+
+Script done on 2020-01-22 02:19:57-0800

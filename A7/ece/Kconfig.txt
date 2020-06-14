@@ -1,0 +1,3 @@
+config ECE
+	tristate ""
+	depends on PCI

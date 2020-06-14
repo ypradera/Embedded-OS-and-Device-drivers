@@ -1,0 +1,42 @@
+//ECE 373
+//Josh Pradera
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <string.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <errno.h>
+
+int main(int argc, char *argv[])
+{
+	int file;
+	ssize_t num_read;
+	int head, tail;
+	char  my_read[10];
+	
+	file = open("/dev/HW6", O_RDWR);
+ 	 if (file==-1) 
+	{
+		perror("File can't be open! \n");
+		return -1;
+	}
+
+	num_read = read(file, &my_read, sizeof(int));
+  	
+	if (num_read==-1)
+	{
+		perror(" kernel Info can't be read! \n");
+		return -1;
+	}
+	head = (*my_read >> 16);
+	tail = *my_read & 0xFFFF;
+
+	printf("Head's value: 0x%x\n",head);
+	printf("Tail's value: 0x%x\n",tail);
+	
+	close(file);
+
+	return 0;
+}

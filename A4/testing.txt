@@ -1,0 +1,54 @@
+//ECE 373
+//Josh Pradera
+
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdint.h> 
+#include <unistd.h>   
+#include <stdlib.h>     
+
+int main(int argc, char *argv[]){
+  int file_descriptor = 0;
+  unsigned long blink_rate;
+  int temp;
+ 
+  file_descriptor = open("/dev/a4", O_RDWR);
+  
+  //opening
+  if(file_descriptor < 0){
+    printf("Could not open a4.\n");
+    perror("Error");
+    return(-1);
+  }
+  
+  //Current blink rate
+  if(read(file_descriptor, &blink_rate, sizeof(unsigned long)) < 0){
+    printf("Could not read pci_device.\n");
+    perror("Error");
+    return(-1);
+  }
+ 
+  printf("The current blink rate is: %d.\n", (int)blink_rate);
+  
+  if(argc == 2){
+    if(!atoi(argv[1])){
+      printf("Please enter an integer.\n");
+      return(-1);
+    }
+    
+  temp = atoi(argv[1]);
+
+    if(write(file_descriptor, &temp, sizeof(int)) < 0){
+      printf("Could not write to pci_device.\n");
+      perror("Error");
+      return(-1);
+    }
+    
+    printf("The new blink rate is: %d.\n", (int)blink_rate);
+  }
+
+  close(file_descriptor);
+  return(0);
+}

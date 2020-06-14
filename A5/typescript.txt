@@ -1,0 +1,30 @@
+Script started on 2020-03-13 21:51:01-0800
+
+root@yusme-VirtualBox:/home/yusme/Desktop/ECE_373/A5# ./a5  
+LEDCTL initial value: 07064302 
+LEDCTL first value: 0x0f0e0f0e
+LEDCTL next value: 0x0f0f0f0f
+Finished
+doing LED writes 
+....................
+Good packets received count: 0 
+root@yusme-VirtualBox:/home/yusme/Desktop/ECE_373/A5# ./a5 
+LEDCTL initial value: 07064302 
+LEDCTL first value: 0x0f0e0f0e
+LEDCTL next value: 0x0f0f0f0f
+Finished
+doing LED writes 
+....................
+Good packets received count: 0 
+root@yusme-VirtualBox:/home/yusme/Desktop/ECE_373/A5# ./a5  
+LEDCTL initial value: 07064302 
+LEDCTL first value: 0x0f0e0f0e
+LEDCTL next value: 0x0f0f0f0f
+Finished
+doing LED writes 
+....................
+Good packets received count: 0 
+root@yusme-VirtualBox:/home/yusme/Desktop/ECE_373/A5# exit
+exit
+
+Script started on 2020-03-13 21:52:02-0800

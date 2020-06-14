@@ -1,0 +1,60 @@
+//ECE 373
+//Josh Pradera
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/select.h>
+#include <sys/types.h>
+#include <errno.h>
+#include <fcntl.h>
+#define PATH_READ "/dev/blinker" 
+#define PATH_WRITE "/sys/module/driver_setup/parameters"
+
+int main(int argc, char **argv){
+
+	int fd,readd,writt;
+	int count = 2;
+	long output_buf[2] = {0xE, 0xF};
+	long input_buf[1] = {0x0};
+	long *output_ptr;
+ 	output_ptr =&output_buf[0];
+
+	if((fd = open(PATH_READ,O_RDWR)) < 0){
+		printf(" File was not found!.\n");
+		perror("Error");
+		return errno;
+	}
+	
+	if((readd = read(fd, input_buf, count)) < 0){
+		printf("Not able to read, readd = %d\n", readd);
+		perror("Error read");
+		return errno;
+	}	
+	printf("Value from PCI device: 0x%lx\n",input_buf[0]);	
+	
+	if((writt = write(fd, output_ptr , count)) < 0){
+		printf("Not able to write, writt = %d\n",writt);
+		perror("Error Write");
+		return errno;
+			
+	}	
+	printf("Value written to driver:0x%lx\n",(*output_ptr));
+
+	if((readd = read(fd, input_buf, count)) < 0){
+		printf("Not able to read,readd = %d\n", readd);
+		perror("Error read");
+		return errno;
+	}	
+
+	printf("Value read from PCI device: 0x%lx\n",input_buf[0]);	
+	
+	if((writt = write(fd, ++output_ptr , count)) < 0){
+                printf("Not able to write, writt = %d\n",writt);
+                perror("Error write");
+                return errno;
+        }
+
+	close(fd);	
+}
+

@@ -1,0 +1,48 @@
+//ECE 373
+//Josh Pradera
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <string.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <time.h>
+
+int main(int argc, char *argv[])
+{
+	srand (time(NULL));
+	int file;
+	ssize_t num_read;
+	int head_, tail_;
+
+	char  my_read[10];
+	
+	head_= rand() % 16 + 1;
+	tail_= rand() % 16 + 1;
+
+	// Opennig  the kernel
+	file = open("/dev/A6", O_RDWR);
+
+ 	 if (file==-1) 
+
+	{
+		perror("File cannot be open! \n");
+		return -1;
+	}
+
+	num_read = read(file, &my_read, sizeof(int));
+  	
+	if (num_read==-1)
+	{
+		perror("Information from kernel cannot be read! \n");
+		return -1;
+	}
+
+	printf("Head's value: 0x%x\n",head_);
+	printf("Tail's value: 0x%x\n",tail_);
+	
+	close(file);
+	return 0;
+}
